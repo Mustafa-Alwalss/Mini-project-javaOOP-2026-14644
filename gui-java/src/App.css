@@ -1,3 +1,7 @@
 .debug {
     border: red solid 1px;
 }
+
+.bg-main {
+    background-color: #23D962;
+}
