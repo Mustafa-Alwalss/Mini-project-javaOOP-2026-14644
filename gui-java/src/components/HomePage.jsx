@@ -1,7 +1,12 @@
 import React from 'react'
 import "../App.css"
 import { Button, Card, Container, Row } from 'react-bootstrap'
-const HomePage = ({ movies }) => {
+const HomePage = ({ movies, setPage, setChosenMovie }) => {
+
+    function buttonAction(movie) {
+        setChosenMovie(movie)
+        setPage("booking")
+    }
 
     return (
 
@@ -35,7 +40,7 @@ const HomePage = ({ movies }) => {
                             >
                                 {movie.overview}
                             </Card.Text>
-                            <Button className='mt-auto bg-danger' >Buy Ticket</Button>
+                            <Button className='mt-auto bg-danger' onClick={() => buttonAction(movie)} >Buy Ticket</Button>
                         </Card.Body>
                     </Card>
                 ))}
