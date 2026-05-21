@@ -4,15 +4,17 @@ public class Movie {
     // Fields
     String title;
     String[] genre;
-    int duration;
     double rating;
+    String overview;
+    int movieId;
 
     // Constructor
-    public Movie(String title, String[] genre, int duration, int rating) {
+    public Movie(String title, String[] genre,double rating, String overview, int movieId) {
         this.title = title;
         this.genre = genre;
-        this.duration = duration;
         this.rating = rating;
+        this.overview = overview;
+        this.movieId = movieId;
     }
 
     // Getters
@@ -24,27 +26,47 @@ public class Movie {
         return genre;
     }
 
-    public int getDuration() {
-        return duration;
-    }
 
     public double getRating() {
         return rating;
     }
 
-    // Format duration
-    public String getFormattedDuration() {
-        int hours = duration / 60;
-        int minutes = duration % 60;
-        return hours + "h " + minutes + "m";
+
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public int getMovieId() {
+        return movieId;
+    }
+
+
+    // Convert genre array to text
+    public String getGenresAsText() {
+
+        String result = "";
+
+        for (int i = 0; i < genre.length; i++) {
+
+            result += genre[i];
+
+            if (i < genre.length - 1) {
+                result += ", ";
+            }
+        }
+
+        return result;
     }
 
     // toString
     @Override
     public String toString() {
-        return "Title: " + title +
-                " | Genre: " + genre +
-                " | Duration: " + getFormattedDuration() +
-                " | Rating: " + rating;
+
+        return "Movie ID: " + movieId +
+                " | Title: " + title +
+                " | Genre: " + getGenresAsText() +
+                " | Rating: " + rating +
+                " | Overview: " + overview;
     }
 }
