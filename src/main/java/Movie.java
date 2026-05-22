@@ -1,15 +1,17 @@
+import java.util.ArrayList;
+
 // محمد مقداد بن قاسم عبده
 public class Movie {
 
     // Fields
     String title;
-    String[] genre;
+    ArrayList<String > genre;
     double rating;
     String overview;
     int movieId;
 
     // Constructor
-    public Movie(String title, String[] genre,double rating, String overview, int movieId) {
+    public Movie(String title,  ArrayList<String > genre,double rating, String overview, int movieId) {
         this.title = title;
         this.genre = genre;
         this.rating = rating;
@@ -22,7 +24,7 @@ public class Movie {
         return title;
     }
 
-    public String[] getGenre() {
+    public  ArrayList<String > getGenre() {
         return genre;
     }
 
@@ -47,11 +49,11 @@ public class Movie {
 
         String result = "";
 
-        for (int i = 0; i < genre.length; i++) {
+        for (int i = 0; i < genre.size(); i++) {
 
-            result += genre[i];
+            result += genre.get(i);
 
-            if (i < genre.length - 1) {
+            if (i < genre.size() - 1) {
                 result += ", ";
             }
         }

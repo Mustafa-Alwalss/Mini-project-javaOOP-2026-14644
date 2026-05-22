@@ -14,12 +14,7 @@ function App() {
   const [chosenMovie, setChosenMovie] = useState()
   const [page, setPage] = useState('home')
 
-  const [bookingInfo, setBookingInfo] = useState({
-    time: null,
-    seat: null,
-    isItVIP: false,
-  })
-  console.log(bookingInfo)
+
   const API_KEY = import.meta.env.VITE_API;
   useEffect(() => {
     const fetchMovies = async () => {
@@ -42,14 +37,13 @@ function App() {
 
   return (
     <>
-
       <Container style={{ width: "100%" }} className='d-flex justify-content-center  mb-3 ' >
         <Image style={{ height: "90px" }} src="/Background.png" />
       </Container>
       <Container>
 
         {page === 'home' && movies.length > 0 && (<HomePage movies={movies} setPage={setPage} setChosenMovie={setChosenMovie} />)}
-        {page === 'booking' && movies.length > 0 && (<BookMovie chosenMovie={chosenMovie} setPage={setPage} setBookingInfo={setBookingInfo} />)}
+        {page === 'booking' && movies.length > 0 && (<BookMovie chosenMovie={chosenMovie} setPage={setPage} API_KEY={API_KEY} />)}
       </Container>
 
     </>

@@ -20,4 +20,12 @@ public class Showtime {
     public String getDate()     { return date; }
     public String getTime()     { return time; }
 
+
+    @Override
+    public String toString() {
+        return  "Showtime ID: " + showtimeId        +
+                " | Movie: "    + movie.getTitle()  +
+                " | Date: "     + date              +
+                " | Time: "     + time              ;
+    }
 }
